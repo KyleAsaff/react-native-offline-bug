@@ -1,5 +1,5 @@
 import {
-  SELECT_MAP_ROAD, UNSELECT_MAP_ROAD,
+  SELECT_MAP_ROAD,
 } from './types';
 
 export const selectMapRoad = (id) => {
