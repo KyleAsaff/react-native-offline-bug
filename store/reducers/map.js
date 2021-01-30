@@ -1,17 +1,15 @@
-/**
- * @file Map Reducer
- * All of the Map Redux reducers.
- * @author Kyle Asaff
- */
 import {
-SELECT_MAP_ROAD, UNSELECT_MAP_ROAD,
+  SELECT_MAP_ROAD,
 } from '../actions/types';
+
+import { offlineActionTypes } from 'react-native-offline';
 
 import update from 'immutability-helper';
 
 // Initial and default map state
 export const initialState = {
   selectedRoadId: null,
+  queue: [],
 };
 
 export default (state = initialState, action) => {
@@ -20,6 +18,11 @@ export default (state = initialState, action) => {
       return update(state, {
         selectedRoadId: { $set: action.payload },
       });
+    case offlineActionTypes.FETCH_OFFLINE_MODE:
+      console.log('Start of Offline Action');
+      console.log(action);
+      console.log('End of Offline Action');
+      return update(state, {});
     default:
       return state;
   }

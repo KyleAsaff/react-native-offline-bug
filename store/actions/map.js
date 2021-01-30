@@ -1,5 +1,5 @@
 import {
-  SELECT_MAP_ROAD,
+  SELECT_MAP_ROAD, UNSELECT_MAP_ROAD,
 } from './types';
 
 export const selectMapRoad = (id) => {
@@ -8,5 +8,8 @@ export const selectMapRoad = (id) => {
   };
 
   thunk.interceptInOffline = true; // This is the important part
+  thunk.meta = {
+    retry: true,
+  }
   return thunk; // Return it afterwards
 };

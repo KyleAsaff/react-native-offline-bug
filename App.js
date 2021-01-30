@@ -1,24 +1,26 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { Provider } from 'react-redux';
 import { store } from './store';
 
 import {
-  selectMapRoad, unselectMapRoad,
+  selectMapRoad,
 } from './store/actions/map';
 
 import { ReduxNetworkProvider } from 'react-native-offline';
 
 const Example = () => {
+  const [number, setNumber] = useState(0)
   const dispatch = useDispatch();
   const onSelectMapRoad = () => {
-    dispatch(selectMapRoad(1));
+    dispatch(selectMapRoad(number));
+    setNumber(number + 1);
   }
   return (
     <View style={styles.container}>
-      <TouchableOpacity onPress={onSelectMapRoad}><Text>dispatch</Text></TouchableOpacity>
+      <TouchableOpacity onPress={onSelectMapRoad}><Text>dispatch select</Text></TouchableOpacity>
     </View>
   );
 }
