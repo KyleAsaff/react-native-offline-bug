@@ -20,10 +20,6 @@ export default (state = initialState, action) => {
       return update(state, {
         selectedRoadId: { $set: action.payload },
       });
-    case UNSELECT_MAP_ROAD:
-      return update(state, {
-        selectedRoadId: { $set: null },
-      });
     default:
       return state;
   }

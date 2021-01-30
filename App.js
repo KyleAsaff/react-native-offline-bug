@@ -9,28 +9,26 @@ import {
   selectMapRoad, unselectMapRoad,
 } from './store/actions/map';
 
+import { ReduxNetworkProvider } from 'react-native-offline';
+
 const Example = () => {
   const dispatch = useDispatch();
   const onSelectMapRoad = () => {
     dispatch(selectMapRoad(1));
   }
   return (
-    <Provider store={store}>
     <View style={styles.container}>
       <TouchableOpacity onPress={onSelectMapRoad}><Text>dispatch</Text></TouchableOpacity>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
     </View>
-    </Provider>
   );
 }
 
 export default function App() {
   return (
     <Provider store={store}>
-    <View style={styles.container}>
-    <Example />
-    </View>
+    <ReduxNetworkProvider pingServerUrl="https://www.thiswebsitedoesnotexistatall.com/">
+        <Example />
+    </ReduxNetworkProvider>
     </Provider>
   );
 }

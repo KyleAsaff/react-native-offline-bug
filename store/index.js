@@ -1,19 +1,18 @@
-/**
- * @file store.js
- * Middleware and functions related for redux store
- * @author Kyle Asaff
- */
-
 import { createStore, applyMiddleware } from 'redux';
 import reduxThunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import reducers from './reducers';
 
+import { createNetworkMiddleware } from 'react-native-offline';
+const networkMiddleware = createNetworkMiddleware({
+  queueReleaseThrottle: 200,
+});
+
 /**
 * Returns redux middleware with respect to the current development environment
 */
 export const middlewares = (() => {
-  const middlewareArray = [reduxThunk];
+  const middlewareArray = [networkMiddleware, reduxThunk];
   return middlewareArray;
 })();
 
