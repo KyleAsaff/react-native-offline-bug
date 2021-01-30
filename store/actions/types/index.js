@@ -1,0 +1,3 @@
+export const SELECT_MAP_ROAD = 'SELECT_MAP_ROAD';
+export const UNSELECT_MAP_ROAD = 'UNSELECT_MAP_ROAD';
+
