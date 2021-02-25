@@ -1,21 +1,25 @@
 import {
-  SELECT_MAP_ROAD,
+  INCREMENT,
+  DECREMENT,
 } from '../actions/types';
 
 import { offlineActionTypes } from 'react-native-offline';
 
 import update from 'immutability-helper';
 
-// Initial and default map state
 export const initialState = {
-  selectedRoadId: null,
+  incNumber: null,
 };
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case SELECT_MAP_ROAD:
+    case INCREMENT:
       return update(state, {
-        selectedRoadId: { $set: action.payload },
+        incNumber: { $set: action.payload },
+      });
+    case DECREMENT:
+      return update(state, {
+        incNumber: { $set: action.payload },
       });
     case offlineActionTypes.FETCH_OFFLINE_MODE:
       return update(state, {});

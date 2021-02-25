@@ -1,2 +1,4 @@
-export const SELECT_MAP_ROAD = 'SELECT_MAP_ROAD';
+export const INCREMENT = 'INCREMENT';
+export const DECREMENT = 'DECREMENT';
+
 
